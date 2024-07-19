@@ -1,4 +1,4 @@
-module github.com/bronze1man/goStrongswanVici
+module github.com/ploynomail/goStrongswanVici
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
