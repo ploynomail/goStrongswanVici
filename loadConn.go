@@ -23,8 +23,8 @@ type IKEConf struct {
 	KeyingTries string                 `json:"keyingtries"`
 	RekeyTime   string                 `json:"rekey_time"`
 	DPDDelay    string                 `json:"dpd_delay,omitempty"`
-	LocalAuth   AuthConf               `json:"local"`
-	RemoteAuth  AuthConf               `json:"remote"`
+	LocalAuth   AuthConf               `json:"local-1"`
+	RemoteAuth  AuthConf               `json:"remote-1"`
 	Pools       []string               `json:"pools,omitempty"`
 	Children    map[string]ChildSAConf `json:"children"`
 	Mobike      string                 `json:"mobike,omitempty"`
@@ -36,11 +36,14 @@ type AuthConf struct {
 	AuthMethod string   `json:"auth"` // (psk|pubkey)
 	EAP_ID     string   `json:"eap_id,omitempty"`
 	PubKeys    []string `json:"pubkeys,omitempty"` // PEM encoded public keys
+	Certs      []string `json:"certs,omitempty"`   // PEM encoded certificates
+	Class      string   `json:"class,omitempty"`
+	Cacerts    []string `json:"cacerts,omitempty"` // PEM encoded CA certificates
 }
 
 type ChildSAConf struct {
-	Local_ts      []string `json:"local_ts"`
-	Remote_ts     []string `json:"remote_ts"`
+	Local_ts      []string `json:"local-ts"`
+	Remote_ts     []string `json:"remote-ts"`
 	ESPProposals  []string `json:"esp_proposals,omitempty"` //aes128-sha1_modp1024
 	StartAction   string   `json:"start_action"`            //none,trap,start
 	CloseAction   string   `json:"close_action"`
